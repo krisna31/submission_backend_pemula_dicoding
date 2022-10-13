@@ -11,4 +11,3 @@ const init = async () => {
 };
 
 init();
-// ini comment
