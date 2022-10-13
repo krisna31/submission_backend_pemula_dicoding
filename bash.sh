@@ -14,7 +14,7 @@ else
 fi
 
 # github commit with messages
-if git commit -am $1 ; then
+if git commit -am "$1" ; then
     echo "$(tput setaf 2)2. git commit succesfull$(tput sgr 0)"
 else
     echo "$(tput setaf 1)EXPCEPTION AT GIT COMMIT$(tput sgr 0)"
