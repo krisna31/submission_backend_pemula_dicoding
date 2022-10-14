@@ -70,6 +70,59 @@ const addBookHandler = (request, h) => {
 
 // eslint-disable-next-line no-unused-vars
 const getAllBooksHandler = (request, h) => {
+  const { name, reading, finished } = request.query;
+
+  if (name !== undefined) {
+    const data = books
+      .filter((book) => book.name.toLowerCase().includes(name.toLowerCase()))
+      .map(({ name, publisher }) => ({
+        name,
+        publisher,
+      }));
+    return h
+      .response({
+        status: "success",
+        data: {
+          books: data,
+        },
+      })
+      .code(200);
+  }
+
+  if (reading !== undefined) {
+    const data = books
+      .filter((book) => (parseInt(reading, 10) ? book.reading : !book.reading))
+      .map(({ name, publisher }) => ({
+        name,
+        publisher,
+      }));
+    return h
+      .response({
+        status: "success",
+        data: {
+          books: data,
+        },
+      })
+      .code(200);
+  }
+
+  if (finished !== undefined) {
+    const data = books
+      .filter((book) => (reading === 0 ? book.finished === false : book.finished === true))
+      .map(({ name, publisher }) => ({
+        name,
+        publisher,
+      }));
+    return h
+      .response({
+        status: "success",
+        data: {
+          books: data,
+        },
+      })
+      .code(200);
+  }
+
   const data = books.map(({ id, name, publisher }) => ({
     id,
     name,
