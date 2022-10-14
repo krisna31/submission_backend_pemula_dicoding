@@ -10,11 +10,7 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-console": "off",
-    "linebreak-style": "off",
-    "eol-last": "off",
-    "quotes": "off",
-    "object-curly-newline": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "linebreak-style":"off"
   }
 }
