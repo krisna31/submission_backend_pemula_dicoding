@@ -75,7 +75,8 @@ const getAllBooksHandler = (request, h) => {
   if (name !== undefined) {
     const data = books
       .filter((book) => book.name.toLowerCase().includes(name.toLowerCase()))
-      .map(({ name, publisher }) => ({
+      .map(({ id, name, publisher }) => ({
+        id,
         name,
         publisher,
       }));
@@ -92,7 +93,8 @@ const getAllBooksHandler = (request, h) => {
   if (reading !== undefined) {
     const data = books
       .filter((book) => (parseInt(reading, 10) ? book.reading : !book.reading))
-      .map(({ name, publisher }) => ({
+      .map(({ id, name, publisher }) => ({
+        id,
         name,
         publisher,
       }));
@@ -108,8 +110,9 @@ const getAllBooksHandler = (request, h) => {
 
   if (finished !== undefined) {
     const data = books
-      .filter((book) => (reading === 0 ? book.finished === false : book.finished === true))
-      .map(({ name, publisher }) => ({
+      .filter((book) => (parseInt(finished, 10) ? book.finished : !book.finished))
+      .map(({ id, name, publisher }) => ({
+        id,
         name,
         publisher,
       }));
