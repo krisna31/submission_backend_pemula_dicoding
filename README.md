@@ -14,7 +14,7 @@ for learn only! or you can read LICENSE.md, and <b>⚠️strictly not to use for
 ## run locally
 
 ```bash
-$ git clone https://github.com/krisna31/submission_sackend_dicoding
+$ git clone https://github.com/krisna31/submission_backend_pemula_dicoding
 $ cd submission_backend_dicoding
 $ npm install OR `$ npm i`
 $ node ./src/consumer.js
